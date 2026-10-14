@@ -260,7 +260,7 @@ external_url '__GENERATED_EXTERNAL_URL__'
 ###! different machine.
 ###! **Add the IP address for your reverse proxy to the list, otherwise users
 ###!   will appear signed in from that address.**
-# gitlab_rails['trusted_proxies'] = []
+gitlab_rails['trusted_proxies'] = ['127.0.0.1', '::1']
 
 ### Content Security Policy
 ###! Customize if you want to enable the Content-Security-Policy header, which
@@ -2113,9 +2113,9 @@ gitlab_rails['nginx']['listen_https'] = false
 # nginx['proxy_cache'] = 'gitlab'
 # gitlab_rails['nginx']['proxy_custom_buffer_size'] = nil
 # gitlab_rails['nginx']['http2_enabled'] = true
-# gitlab_rails['nginx']['real_ip_trusted_addresses'] = []
-# gitlab_rails['nginx']['real_ip_header'] = nil
-# gitlab_rails['nginx']['real_ip_recursive'] = nil
+gitlab_rails['nginx']['real_ip_trusted_addresses'] = ['127.0.0.1', '::1']
+gitlab_rails['nginx']['real_ip_header'] = 'X-Forwarded-For'
+gitlab_rails['nginx']['real_ip_recursive'] = 'on'
 # gitlab_rails['nginx']['custom_error_pages'] = {
 #   '404' => {
 #     'title' => 'Example title',
