@@ -260,7 +260,7 @@ external_url '__GENERATED_EXTERNAL_URL__'
 ###! different machine.
 ###! **Add the IP address for your reverse proxy to the list, otherwise users
 ###!   will appear signed in from that address.**
-gitlab_rails['trusted_proxies'] = ['127.0.0.1', '::1']
+# gitlab_rails['trusted_proxies'] = []
 
 ### Content Security Policy
 ###! Customize if you want to enable the Content-Security-Policy header, which
