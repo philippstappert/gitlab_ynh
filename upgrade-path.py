@@ -338,6 +338,14 @@ def update_gitlab_rb(version: str):
         (r"# gitlab_rails\['nginx'\]\['listen_https'\] = .*",
          "gitlab_rails['nginx']['listen_https'] = false"),
 
+        # Real client IP from the YunoHost reverse proxy
+        (r"# gitlab_rails\['nginx'\]\['real_ip_trusted_addresses'\] = .*",
+         "gitlab_rails['nginx']['real_ip_trusted_addresses'] = ['127.0.0.1']"),
+        (r"# gitlab_rails\['nginx'\]\['real_ip_header'\] = .*",
+         "gitlab_rails['nginx']['real_ip_header'] = 'X-Forwarded-For'"),
+        (r"# gitlab_rails\['nginx'\]\['real_ip_recursive'\] = .*",
+         "gitlab_rails['nginx']['real_ip_recursive'] = 'on'"),
+
         # Kernel parameters
         (r"# package\['modify_kernel_parameters'\] = .*",
          "package['modify_kernel_parameters'] = __MODIFY_KERNEL_PARAMETERS__"),
